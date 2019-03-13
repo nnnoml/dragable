@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <DragPlugin />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DragPlugin from './components/dragPlugin/DragPlugin.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name: 'app'
+  ,components: {
+    DragPlugin
+  }
+  ,data:function(){
+    return{
+    }
+  }
+  ,methods:{
+    checkAuth:function(){
+      return true;
+    }
+  }
+  ,mounted:function(){
+    //todo 验证所属权限 登录状态
+    let res = this.checkAuth();
+    if(res){
+    }
+    else{
+      alert('登录失败');
+      window.location.href="http://www.baidu.com";
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+#app{
+  overflow: hidden;
 }
 </style>
