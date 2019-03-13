@@ -37,7 +37,6 @@ export default {
       tags:[
         1,2,3,4,5
       ]
-      ,InfoList:[]
       ,imgOffsetX:0
       ,imgOffsetY:0
     }
@@ -61,8 +60,8 @@ export default {
           info.x = x
           info.y = y
         info.id = info.id + Date.parse(new Date())
-        // this.$store.commit('addList',info);
-        this.InfoList.push(info)
+        this.$store.commit('addList',info);
+        // this.InfoList.push(info)
       }
     },
     //拖曳区 图片拖动开始
@@ -89,10 +88,10 @@ export default {
     }
   }
   ,computed: {
-    // InfoList () {
-    //   console.log(this.$store.state.dragList);
-    //   return this.$store.state.dragList
-    // }
+    InfoList () {
+      // console.log(this.$store.state.dragList);
+      return this.$store.state.dragList
+    }
   }
 }
 </script>

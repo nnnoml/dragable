@@ -8,8 +8,8 @@ export default new Vuex.Store({
     dragList:[]
   },
   mutations: {
-    addList (state) {
-      state.dragList.push(state)
+    addList (state,info) {
+      state.dragList.push(info)
     }
   },
   actions: {
