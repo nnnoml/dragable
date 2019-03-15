@@ -4,16 +4,18 @@
     <!-- <LeftTemp /> -->
     <MainCanvas />
     <bottomTemp />
+    <ShowBox />
   </div>
 </template>
 
 <script>
 // import draggable  from 'vuedraggable'
+import HeaderTemp from './common/HeaderTemp.vue'
+import LeftTemp from './common/LeftTemp.vue'
+import MainCanvas from './common/MainCanvas.vue'
+import BottomTemp from './common/BottomTemp.vue'
+import ShowBox from './common/ShowBox.vue'
 
-import HeaderTemp from './HeaderTemp.vue'
-import LeftTemp from './LeftTemp.vue'
-import MainCanvas from './MainCanvas.vue'
-import BottomTemp from './BottomTemp.vue'
 
 export default {
   name: 'DragPlugin'
@@ -22,6 +24,7 @@ export default {
     ,LeftTemp
     ,MainCanvas
     ,BottomTemp
+    ,ShowBox
     // ,draggable
   }
   ,data:function(){

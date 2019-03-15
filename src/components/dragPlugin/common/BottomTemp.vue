@@ -2,27 +2,28 @@
   <div class="BottomTemp">
       底部导航{{count}}
       <textPlugin />
-      桌面插图
-      轮播图片
+      <imgPlugin />
+      <scrollImgPlugin />
   </div>
 </template>
 
 <script>
-import textPlugin from './plugin/textPlugin.vue'
+import textPlugin from '../plugin/textPlugin.vue'
+import imgPlugin from '../plugin/imgPlugin.vue'
+import scrollImgPlugin from '../plugin/scrollImgPlugin.vue'
 
 export default {
   name: 'BottomTemp'
   ,components: {
     textPlugin
+    ,imgPlugin
+    ,scrollImgPlugin
   }
 	,props: {
 		baseInfo: Object,
   }
   ,data:function(){
     return{
-      reference_line:false
-      ,is_hide:false
-      ,is_hide_pos:0
     }
   }
   ,methods:{

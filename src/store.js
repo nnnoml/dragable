@@ -5,12 +5,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    dragList:[]
+    dragList:[],
+    dragCount:0,
+    drag_showbox_status:false,
+    drag_showbox_item:{},
   },
   mutations: {
-    addList (state,info) {
-      state.dragList.push(info)
+    dragCount (state) {
+      state.dragCount++
+    },
+    dragList (state,payload) {
+      state.dragList.push(payload);
+    },
+    //删除
+    dragListRemove (state,id) {
+      state.dragList.forEach((item,index) =>{
+        if(item.id === id){
+          state.dragList.splice(index,1)
+        }
+      })
+    },
+    drag_showbox_status (state,payload){
+      state.drag_showbox_status = payload
+    },
+    drag_showbox_item (state,payload){
+      state.drag_showbox_item = payload
     }
+
   },
   actions: {
 

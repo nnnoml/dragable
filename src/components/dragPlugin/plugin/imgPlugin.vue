@@ -6,13 +6,13 @@
       @dragstart="dragstart"
       @dragend="dragend"
       draggable="true"
-    >文字公告</p>
+    >桌面插图</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'textPlugin'
+  name: 'imgPlugin'
 	,props: {
 		baseInfo: Object,
   }
@@ -27,14 +27,14 @@ export default {
       //设置属性
       let info = {
         id:this.dragCount
-        ,type:'text'
+        ,type:'img'
         ,activated:false
-        ,w:145
-        ,h:30
+        ,w:300
+        ,h:250
         ,x:0
         ,y:0
         ,zindex:this.$store.state.dragCount
-        ,dom:"请双击编辑文字"
+        ,dom:"<img src='https://tpc.googlesyndication.com/simgad/8593981413023260756?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qmeC9TSiuEECfc0i2oHF7I4oNgplw' />"
       };
       ev.dataTransfer.setData('Text', JSON.stringify(info))
     }

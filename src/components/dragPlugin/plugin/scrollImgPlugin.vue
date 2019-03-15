@@ -6,13 +6,13 @@
       @dragstart="dragstart"
       @dragend="dragend"
       draggable="true"
-    >文字公告</p>
+    >轮播图片</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'textPlugin'
+  name: 'imgPlugin'
 	,props: {
 		baseInfo: Object,
   }
@@ -27,14 +27,14 @@ export default {
       //设置属性
       let info = {
         id:this.dragCount
-        ,type:'text'
+        ,type:'scrollimg'
         ,activated:false
-        ,w:145
-        ,h:30
+        ,w:75
+        ,h:75
         ,x:0
         ,y:0
         ,zindex:this.$store.state.dragCount
-        ,dom:"请双击编辑文字"
+        ,dom:"<img class='imgs' src='https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2913204781,3741500611&fm=58' />"
       };
       ev.dataTransfer.setData('Text', JSON.stringify(info))
     }
