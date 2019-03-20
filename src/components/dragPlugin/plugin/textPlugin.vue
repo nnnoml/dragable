@@ -6,6 +6,7 @@
       @dragstart="dragstart"
       @dragend="dragend"
       draggable="true"
+      @click="clickHandle($event)"
     >文字公告</p>
   </div>
 </template>
@@ -18,25 +19,26 @@ export default {
   }
   ,data:function(){
     return{
-
-    }
-  }
-  ,methods:{
-    //开始拖动
-    dragstart (ev) {
       //设置属性
-      let info = {
-        id:this.dragCount
+      info:{
+        id:0
         ,type:'text'
         ,activated:false
+        ,isClick:true
         ,w:145
         ,h:30
         ,x:0
         ,y:0
-        ,zindex:this.$store.state.dragCount
+        ,zindex:0
         ,dom:"请双击编辑文字"
-      };
-      ev.dataTransfer.setData('Text', JSON.stringify(info))
+      }
+    }
+  }
+  ,methods:{
+    //开始拖动
+    dragstart (e) {
+      this.info.isClick=false;
+      e.dataTransfer.setData('Text', JSON.stringify(this.info))
     }
     //拖动结束
     ,dragend (e){
@@ -44,10 +46,26 @@ export default {
       //id递增
       this.$store.commit('dragCount');
     }
+    ,clickHandle(){
+      //单击事件记录状态
+      this.info.isClick=true;
+      this.info.id = this.info.id 
+      // + Date.parse(new Date())
+      //深拷贝 防止组件相互绑定
+      let infocache = JSON.parse(JSON.stringify(this.info))
+
+      this.$store.commit('drag_showbox_status',true);
+      this.$store.commit('drag_showbox_item',infocache);
+    }
   }
   ,computed: {
     dragCount () {
-      return 'text_'+this.$store.state.dragCount
+      let id = this.$store.state.dragCount;
+
+      this.info.zindex = id
+      this.info.id = 'text_'+id;
+
+      return 'text_'+id
     }
   }
 }

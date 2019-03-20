@@ -1,6 +1,6 @@
 <template>
   <div id="DragPlugin" :style="guiSize">
-    <!-- <HeaderTemp :info='info' /> -->
+    <HeaderTemp :info='info' />
     <!-- <LeftTemp /> -->
     <MainCanvas />
     <bottomTemp />

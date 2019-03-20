@@ -1,6 +1,6 @@
 <template>
   <div class="BottomTemp">
-      底部导航{{count}}
+      底部导航
       <textPlugin />
       <imgPlugin />
       <scrollImgPlugin />
@@ -19,18 +19,8 @@ export default {
     ,imgPlugin
     ,scrollImgPlugin
   }
-	,props: {
-		baseInfo: Object,
-  }
   ,data:function(){
     return{
-    }
-  }
-  ,methods:{
-  }
-  ,computed: {
-    count () {
-      return this.$store.state.count
     }
   }
 }
