@@ -35,7 +35,7 @@ npm install mddir --save
 cd node_modules/mddir/src
 node mddir "../../../"
 Exports 'directoryList.md' in mddir/src folder
-```
+
 |-- root
     |-- .gitignore
     |-- babel.config.js
@@ -68,3 +68,4 @@ Exports 'directoryList.md' in mddir/src folder
                     |-- imgPlugin.vue //图片插件
                     |-- scrollImgPlugin.vue //轮播插件
                     |-- textPlugin.vue //文本插件
+```
