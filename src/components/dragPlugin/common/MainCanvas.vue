@@ -92,7 +92,7 @@ export default {
   }
   ,computed: {
     dragList () {
-      return this.$store.state.dragList
+      return this.$store.state.drag.dragList
     }
   }
 }

@@ -60,7 +60,7 @@ export default {
   }
   ,computed: {
     dragCount () {
-      let id = this.$store.state.dragCount;
+      let id = this.$store.state.drag.dragCount;
 
       this.info.zindex = id
       this.info.id = 'text_'+id;

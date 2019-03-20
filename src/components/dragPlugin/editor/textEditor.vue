@@ -19,12 +19,12 @@
       }
       ,methods: {
         save:function(){
-          this.$store.state.drag_showbox_item.dom=this.editorContent;
+          this.$store.state.drag.drag_showbox_item.dom=this.editorContent;
           //保存时候检测 如果是点击进来的组件，做拷贝
-          if(this.$store.state.drag_showbox_item.isClick){
+          if(this.$store.state.drag.drag_showbox_item.isClick){
               //关闭属性,下次修改不需要增加组件
-              this.$store.state.drag_showbox_item.isClick=false;
-              this.$store.commit('dragList',this.$store.state.drag_showbox_item);
+              this.$store.state.drag.drag_showbox_item.isClick=false;
+              this.$store.commit('dragList',this.$store.state.drag.drag_showbox_item);
               //组件id递增
               this.$store.commit('dragCount');
           }
@@ -67,7 +67,7 @@
           // 'redo'  // 重复
         ]
         this.editor_el.create()
-        let dom = this.$store.state.drag_showbox_item.dom;
+        let dom = this.$store.state.drag.drag_showbox_item.dom;
         this.editor_el.txt.html(dom);
         this.editorContent = dom
       }

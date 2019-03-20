@@ -25,6 +25,7 @@ export default {
     //todo 验证所属权限 登录状态
     let res = this.checkAuth();
     if(res){
+      
     }
     else{
       alert('登录失败');

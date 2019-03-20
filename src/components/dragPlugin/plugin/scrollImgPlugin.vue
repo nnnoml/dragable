@@ -33,7 +33,7 @@ export default {
         ,h:75
         ,x:0
         ,y:0
-        ,zindex:this.$store.state.dragCount
+        ,zindex:this.$store.state.drag.dragCount
         ,dom:"<img class='imgs' src='https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2913204781,3741500611&fm=58' />"
       };
       ev.dataTransfer.setData('Text', JSON.stringify(info))
@@ -47,7 +47,7 @@ export default {
   }
   ,computed: {
     dragCount () {
-      return 'text_'+this.$store.state.dragCount
+      return 'text_'+this.$store.state.drag.dragCount
     }
   }
 }

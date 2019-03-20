@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import draggable  from 'vuedraggable'
 import HeaderTemp from './common/HeaderTemp.vue'
 import LeftTemp from './common/LeftTemp.vue'
 import MainCanvas from './common/MainCanvas.vue'
@@ -25,7 +24,6 @@ export default {
     ,MainCanvas
     ,BottomTemp
     ,ShowBox
-    // ,draggable
   }
   ,data:function(){
     return{
