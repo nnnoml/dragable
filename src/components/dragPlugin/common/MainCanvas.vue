@@ -85,8 +85,8 @@ export default {
     ,onResizing(left,top,width,height){
       let img_dom = document.getElementById(this.item_id).getElementsByClassName("imgs")[0];
       if(typeof(img_dom) != 'undefined'){
-        img_dom.style.width=width+"px";;
-        img_dom.style.height=height+"px";;
+        img_dom.style.width=width+"px";
+        img_dom.style.height=height+"px";
       }
     }
   }

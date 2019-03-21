@@ -58,9 +58,13 @@ export default {
       return this.$store.state.drag.drag_showbox_status
     }
     ,type(){
-      this.domcache = this.$store.state.drag.drag_showbox_item.dom;
       return this.$store.state.drag.drag_showbox_item.type
     }
+  }
+  ,watch:{
+      type(){
+        this.domcache = this.$store.state.drag.drag_showbox_item.dom;
+      }
   }
 }
 

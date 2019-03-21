@@ -37,7 +37,7 @@ export default {
   }
   ,watch:{
     reference_line:function(){
-      console.log(this.reference_line);
+      window.console.log(this.reference_line);
     }
   }
 }

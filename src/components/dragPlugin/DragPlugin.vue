@@ -10,7 +10,7 @@
 
 <script>
 import HeaderTemp from './common/HeaderTemp.vue'
-import LeftTemp from './common/LeftTemp.vue'
+// import LeftTemp from './common/LeftTemp.vue'
 import MainCanvas from './common/MainCanvas.vue'
 import BottomTemp from './common/BottomTemp.vue'
 import ShowBox from './common/ShowBox.vue'
@@ -20,7 +20,7 @@ export default {
   name: 'DragPlugin'
   ,components: {
     HeaderTemp
-    ,LeftTemp
+    // ,LeftTemp
     ,MainCanvas
     ,BottomTemp
     ,ShowBox
