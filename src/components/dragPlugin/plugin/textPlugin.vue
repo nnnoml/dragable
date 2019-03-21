@@ -50,7 +50,6 @@ export default {
       //单击事件记录状态
       this.info.isClick=true;
       this.info.id = this.info.id 
-      // + Date.parse(new Date())
       //深拷贝 防止组件相互绑定
       let infocache = JSON.parse(JSON.stringify(this.info))
 
@@ -60,13 +59,13 @@ export default {
   }
   ,computed: {
     dragCount () {
-      let id = this.$store.state.drag.dragCount;
+      let id = this.$store.state.draggable.dragCount;
       return 'text_'+id
     }
   }
   ,watch:{
     dragCount(){
-      let id = this.$store.state.drag.dragCount;
+      let id = this.$store.state.draggable.dragCount;
 
       this.info.zindex = id;
       this.info.id = 'text_'+id;

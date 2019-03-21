@@ -25,7 +25,7 @@ export default {
     //todo 验证所属权限 登录状态
     let res = this.checkAuth();
     if(res){
-      window.console.log('223');
+      window.console.log('登录失败跳转');
     }
     else{
       alert('登录失败');

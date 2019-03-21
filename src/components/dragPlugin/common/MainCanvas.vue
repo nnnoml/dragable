@@ -1,19 +1,6 @@
 <template>
   <div style='position: relative; overflow:hidden;'>
     <div>
-      <!-- <div style="width:300px;float:left">
-        <ul>
-          <li v-for="item in tags" :key='item.id'>
-            <img src="https://www.slyun.com/static/guanwang_2018/images/app_phone.png" 
-              :id='item.id'
-              class='msg'
-              @dragstart="dragstart"
-              @dragend="imgEnd"
-              draggable="true" />
-          </li>
-        </ul>
-      </div> -->
-      <!-- 自由移动区域 -->
       <div class="zhuobu" @drop.prevent="drop" @dragover.prevent>
         <VueDraggableResizable
           :w="item.w"
@@ -35,6 +22,8 @@
         </VueDraggableResizable>
       </div>
     </div>
+    <div v-if="reference_line" class="midline_1"></div>
+    <div v-if="reference_line" class="midline_2"></div>
   </div>
 </template>
 
@@ -91,8 +80,13 @@ export default {
     }
   }
   ,computed: {
+    //如果有新控件拖进来 更新画板
     dragList () {
-      return this.$store.state.drag.dragList
+      return this.$store.state.draggable.dragList;
+    }
+    //如果勾选了
+    ,reference_line(){
+      return this.$store.state.draggable.reference_line;
     }
   }
 }
@@ -112,4 +106,18 @@ export default {
   top:0px;
 }
 img{ width:100%;height:100%}
+.midline_1{
+    width: 2px;
+    height: 100%;
+    background: #d6d6d6;
+    position: absolute;
+    left: 50%;
+}
+.midline_2{
+    width: 100%;
+    height: 2px;
+    background: #d6d6d6;
+    position: absolute;
+    top: 50%;
+}
 </style>

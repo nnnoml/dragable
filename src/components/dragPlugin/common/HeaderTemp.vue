@@ -18,7 +18,6 @@ export default {
   }
   ,data:function(){
     return{
-      reference_line:false
     }
   }
   ,methods:{
@@ -33,6 +32,16 @@ export default {
         window.location.href= imgUri+'.png'; // 下载图片
           // document.body.appendChild(canvas);
       });
+    }
+  }
+  ,computed:{
+    reference_line:{
+      get(){
+        return this.$store.state.draggable.reference_line;
+      }
+      ,set(){
+        this.$store.commit('reference_line',!this.reference_line);
+      }
     }
   }
   ,watch:{

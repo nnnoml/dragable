@@ -34,12 +34,12 @@ export default {
   }
   ,methods:{
       save:function(){
-          this.$store.state.drag.drag_showbox_item.dom=this.domcache;
+          this.$store.state.draggable.drag_showbox_item.dom=this.domcache;
           //保存时候检测 如果是点击进来的组件，做拷贝
-          if(this.$store.state.drag.drag_showbox_item.isClick){
+          if(this.$store.state.draggable.drag_showbox_item.isClick){
               //关闭属性,下次修改不需要增加组件
-              this.$store.state.drag.drag_showbox_item.isClick=false;
-              this.$store.commit('dragList',this.$store.state.drag.drag_showbox_item);
+              this.$store.state.draggable.drag_showbox_item.isClick=false;
+              this.$store.commit('dragList',this.$store.state.draggable.drag_showbox_item);
               //组件id递增
               this.$store.commit('dragCount');
           }
@@ -55,15 +55,15 @@ export default {
   }
   ,computed:{
     status(){
-      return this.$store.state.drag.drag_showbox_status
+      return this.$store.state.draggable.drag_showbox_status
     }
     ,type(){
-      return this.$store.state.drag.drag_showbox_item.type
+      return this.$store.state.draggable.drag_showbox_item.type
     }
   }
   ,watch:{
       type(){
-        this.domcache = this.$store.state.drag.drag_showbox_item.dom;
+        this.domcache = this.$store.state.draggable.drag_showbox_item.dom;
       }
   }
 }

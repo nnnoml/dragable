@@ -33,7 +33,7 @@ export default {
         ,h:250
         ,x:0
         ,y:0
-        ,zindex:this.$store.state.drag.dragCount
+        ,zindex:this.$store.state.draggable.dragCount
         ,dom:"<img src='https://tpc.googlesyndication.com/simgad/8593981413023260756?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qmeC9TSiuEECfc0i2oHF7I4oNgplw' />"
       };
       ev.dataTransfer.setData('Text', JSON.stringify(info))
@@ -47,7 +47,7 @@ export default {
   }
   ,computed: {
     dragCount () {
-      return 'text_'+this.$store.state.drag.dragCount
+      return 'text_'+this.$store.state.draggable.dragCount
     }
   }
 }
