@@ -15,10 +15,10 @@
           @activated = "onActivated(item)"
           @deactivated="onDeactivated(item)"
           @resizing="onResizing"
-
+          @dragging="onDragging"
           v-for="(item, index) in dragList" :key='index' :id="item.id">
           <div v-html="item.dom"></div>
-          <div v-show="item.activated" class="shanchu" @click="removeDrag(item)">删</div>
+          <div v-show="item.activated" class="shanchu" @click="removeDrag(item,$event)">删</div>
         </VueDraggableResizable>
       </div>
     </div>
@@ -48,18 +48,20 @@ export default {
       //鼠标当前的坐标
       info.x = e.clientX;
       info.y = e.clientY;
-      info.id = info.id + Date.parse(new Date())
+
+      info.id = info.type+'_'+info.id +'_'+ Date.parse(new Date())
       this.$store.commit('dragList',info);
     }
     //弹出层
     ,showBox(item){
       this.$store.commit('drag_showbox_status',true);
-      this.$store.commit('drag_showbox_item',item);
+      this.$store.commit('drag_item_cache',item);
     }
     //单击事件  出现删除,记录id
     ,onActivated(item){
       item.activated = true;
       this.item_id = item.id;
+      console.log('focus',this.$store.state.draggable.dragList);
     }
     //单击取消事件  屏蔽删除
     ,onDeactivated(item){
@@ -67,8 +69,11 @@ export default {
       this.item_id = '';
     }
     //删除
-    ,removeDrag(item){
+    ,removeDrag(item,e){
+      console.log('remove',this.$store.state.draggable.dragList);
+      e.currentTarget.active = false
       this.$store.commit('dragListRemove',item.id);
+      console.log('removed',this.$store.state.draggable.dragList);
     }
     //拖曳修正图片大小
     ,onResizing(left,top,width,height){
@@ -77,6 +82,10 @@ export default {
         img_dom.style.width=width+"px";
         img_dom.style.height=height+"px";
       }
+    }
+    //修复拖曳数据源不更新 导致的删除item 刷新view 所有item跳回原处的bug
+    ,onDragging(left,top){
+      this.$store.commit('updateItemPos',{'id':this.item_id,'left':left,'top':top});
     }
   }
   ,computed: {

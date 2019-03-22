@@ -37,8 +37,9 @@ export default {
   ,methods:{
     //开始拖动
     dragstart (e) {
-      this.info.isClick=false;
-      e.dataTransfer.setData('Text', JSON.stringify(this.info))
+      let info_cache = JSON.parse(JSON.stringify(this.info));
+      info_cache.isClick=false;
+      e.dataTransfer.setData('Text', JSON.stringify(info_cache))
     }
     //拖动结束
     ,dragend (e){
@@ -47,28 +48,27 @@ export default {
       this.$store.commit('dragCount');
     }
     ,clickHandle(){
+      let info_cache = JSON.parse(JSON.stringify(this.info));
       //单击事件记录状态
-      this.info.isClick=true;
-      this.info.id = this.info.id 
-      //深拷贝 防止组件相互绑定
-      let infocache = JSON.parse(JSON.stringify(this.info))
+      info_cache.isClick=true;
+      info_cache.id = this.dragCount;
 
       this.$store.commit('drag_showbox_status',true);
-      this.$store.commit('drag_showbox_item',infocache);
+      this.$store.commit('drag_item_cache',info_cache);
     }
   }
   ,computed: {
     dragCount () {
       let id = this.$store.state.draggable.dragCount;
-      return 'text_'+id
+      return 'text_'+id+'_'+ Date.parse(new Date())
     }
   }
   ,watch:{
+    //自增id变化 联动zindex变化
     dragCount(){
       let id = this.$store.state.draggable.dragCount;
-
       this.info.zindex = id;
-      this.info.id = 'text_'+id;
+      this.info.id = id;
     }
   }
 }
