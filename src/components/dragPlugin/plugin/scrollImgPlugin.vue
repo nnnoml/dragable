@@ -1,12 +1,11 @@
 <template>
-  <div class="title">
-    <p 
+  <div 
       :id="dragCount"
-      class='msg'
       @dragstart="dragstart"
       @dragend="dragend"
       draggable="true"
-    >轮播图片</p>
+      class="tool-footer-icon fl">
+    <i class="windowr-icon icon-lunbotu"></i> 轮播图片
   </div>
 </template>
 

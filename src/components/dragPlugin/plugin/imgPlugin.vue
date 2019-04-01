@@ -1,13 +1,14 @@
 <template>
-  <div class="title">
-    <p 
+  <div
       :id="dragCount"
-      class='msg'
       @dragstart="dragstart"
       @dragend="dragend"
       draggable="true"
       @click="clickHandle($event)"
-    >桌面插图</p>
+      class="tool-footer-icon fl" 
+   >
+   <!-- id="choice-cloud" -->
+    <i class="windowr-icon icon-img"></i> 桌面插图
   </div>
 </template>
 

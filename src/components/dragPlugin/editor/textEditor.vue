@@ -1,8 +1,13 @@
 <template>
     <div>
+      <div class="tool-box-cloud">
+				<div class="layui-layer-title" style="cursor: move;"><span class="layui-layer-setwin"><a href="#"><img src="../../../assets/images/close-a.png"></a></span>编辑文字</div>
         <div ref="editor" style="text-align:left"></div>
-        <button v-on:click="save">保存</button>
-        <button v-on:click="close">取消</button>
+				<div>
+          <input type="button" @click="save" class="pz-footer-button mt-15 mb-15" value="保存" id="upload-down-btn">
+          <input type="button" @click="close" class="pz-footer-button mt-15 mb-15" value="取消" id="upload-down-btn">
+        </div>
+			</div>
     </div>
 </template>
 

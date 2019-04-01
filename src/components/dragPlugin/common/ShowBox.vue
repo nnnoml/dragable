@@ -1,5 +1,5 @@
 <template>
-  <div class="showbox" v-show="status" @click.self="close">
+  <div class="showbox" v-show="status">
       <div class="showbox_inner" v-if="type == 'text'">
           <textEditor />
       </div>
@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script> 
+<script>
 import textEditor from '../editor/textEditor'
 import imgEditor from '../editor/imgEditor'
 import scrollImgEditor from '../editor/scrollImgEditor'
@@ -40,9 +40,8 @@ export default {
               //关闭属性,下次修改不需要增加组件
               this.$store.state.draggable.drag_item_cache.isClick=false;
               this.$store.commit('dragList',this.$store.state.draggable.drag_item_cache);
-              
           }
-          
+
           //组件id递增
           this.$store.commit('dragCount');
           this.close();

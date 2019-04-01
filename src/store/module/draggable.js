@@ -1,6 +1,15 @@
 export default {
     state: {
-          dragCount:1  //拖曳控件id
+          dragCount:1  //拖曳控件递增id
+          ,dragId:'' //当前操作的控件id
+          ,dragInfo:{
+              width:0 //分辨率宽
+              ,height:0 //分辨率高
+              ,item_width:0 //组件宽
+              ,item_height:0 //组件高
+              ,item_x:0 //组件横向X
+              ,item_y:0 //组件纵向Y
+          } //全局信息
           ,dragList:[] //控件list
           ,drag_showbox_status:false //编辑弹窗状态
           ,drag_item_cache:{} //编辑弹窗填充
@@ -13,22 +22,46 @@ export default {
         ,dragList (state,payload) {
             state.dragList.push(payload);
         }
-        //同步更新源数据位置
+        ,dragId (state,payload){
+            state.dragId = payload
+        }
+        //同步更新源组件位置
         ,updateItemPos(state,payload){
             state.dragList.forEach((item,index) =>{
-                if(item.id === payload.id){
-                    state.dragList[index].x=payload.left;
-                    state.dragList[index].y=payload.top;
+                if(item.id === state.dragId){
+                    if(typeof(payload.left)!=='undefined')
+                        state.dragList[index].x=payload.left;
+                    if(typeof(payload.top)!=='undefined')
+                        state.dragList[index].y=payload.top;
+                }
+            })
+        }
+        //同步更新源组件大小
+        ,updateItemSize(state,payload){
+            state.dragList.forEach((item,index) =>{
+                if(item.id === state.dragId){
+                    if(typeof(payload.width)!=='undefined')
+                        state.dragList[index].w=payload.width;
+                    if(typeof(payload.height)!=='undefined')
+                        state.dragList[index].h=payload.height;
                 }
             })
         }
         //删除控件
-        ,dragListRemove (state,id) {
+        ,dragListRemove (state) {
             state.dragList.forEach((item,index) =>{
-                if(item.id === id){
+                if(item.id === state.dragId){
                     state.dragList.splice(index,1)
                 }
             })
+        }
+        //组件信息
+        ,dragInfo(state,payload){
+            for(var key in payload){
+                if(typeof(payload[key])!=undefined){
+                    state.dragInfo[key] = payload[key];
+                }
+            }
         }
         ,drag_showbox_status (state,payload){
             state.drag_showbox_status = payload
@@ -39,7 +72,6 @@ export default {
         ,reference_line(state,payload){
             state.reference_line = payload
         }
-
     }
     ,actions: {
     }

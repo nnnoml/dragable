@@ -1,14 +1,12 @@
 <template>
-  <div class="title">
-    <p 
-      :id="dragCount"
-      class='msg'
+    <div :id="dragCount"
       @dragstart="dragstart"
       @dragend="dragend"
       draggable="true"
       @click="clickHandle($event)"
-    >文字公告</p>
-  </div>
+      class="msg tool-footer-icon fl">
+      <i class="windowr-icon icon-wenzi"></i> 文字公告
+    </div>
 </template>
 
 <script>

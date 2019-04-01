@@ -1,6 +1,8 @@
 <template>
-  <div class="BottomTemp">
-      底部导航
+  <div class="fl">
+    <div class="window-style fl">
+      <i class="window-icon icon-win"></i>
+    </div>
       <textPlugin />
       <imgPlugin />
       <scrollImgPlugin />
@@ -27,9 +29,4 @@ export default {
 </script>
 
 <style scoped>
-.BottomTemp{
-  position: fixed;
-  bottom:0px;
-  left:0px;
-}
 </style>

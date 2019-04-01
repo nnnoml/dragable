@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /* Firefox*/
+    -webkit-box-sizing: border-box;
+    /* Safari*/
+}
+
+body {
+    background: #FCFCFC;
+    font-family: "Microsoft YaHei";
+    /*font-family: "微软雅黑";*/
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a img {
+    border: 0;
+}
+
+img {
+    border: 0;
+}
+
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:focus {
+    text-decoration: none;
+    color: #000;
+    /*outline:none;
+    blr:expression(this.onFocus=this.blur());*/
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+i {
+    font-style: normal;
+}
+
+input {
+    outline: none;
+}
+
+progress {
+    width: 100%;
+    background-color: #E7E7E7;
+    color: #10c55b;
+    height: 10px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+progress::-moz-progress-bar {
+    background: #10c55b;
+}
+
+progress::-webkit-progress-bar {
+    background: #E7E7E7;
+}
+
+progress::-webkit-progress-value {
+    background: #10c55b;
+}
+
+header,
+footer,
+aside,
+details,
+menu,
+article,
+section,
+nav,
+address,
+hgroup,
+figure,
+figcaption,
+legend {
+    display: block;
+    margin: 0;
+    padding: 0
+}
+
+textarea {
+    outline: none;
+    resize:none;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.overflowhide {
+    overflow: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.middle-style {
+    text-align: left;
+    zoom: 1;
+    display: inline-block;
+    *display: inline;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+.clear {
+    clear: both;
+}
