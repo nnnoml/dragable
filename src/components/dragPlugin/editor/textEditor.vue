@@ -1,9 +1,14 @@
 <template>
-    <div>
+    <div class=" box-middle">
       <div class="tool-box-cloud">
-				<div class="layui-layer-title" style="cursor: move;"><span class="layui-layer-setwin"><a href="#"><img src="../../../assets/images/close-a.png"></a></span>编辑文字</div>
+				<div class="layui-layer-title" style="cursor: move;">
+          <span class="layui-layer-setwin">
+            <a href="javascript:;" @click="close()"><img src="../../../assets/images/close-a.png"></a>
+          </span>
+          编辑文字
+        </div>
         <div ref="editor" style="text-align:left"></div>
-				<div>
+				<div class="text-editor-button">
           <input type="button" @click="save" class="pz-footer-button mt-15 mb-15" value="保存" id="upload-down-btn">
           <input type="button" @click="close" class="pz-footer-button mt-15 mb-15" value="取消" id="upload-down-btn">
         </div>
@@ -86,4 +91,14 @@
 </script>
 
 <style scoped>
+.text-editor-button{
+  width:400px;
+  margin:0px auto;
+}
+.text-editor-button input:nth-child(1){
+  float:left;
+}
+.text-editor-button input:nth-child(2){
+  float:right;
+}
 </style>

@@ -30,7 +30,7 @@ export default {
         ,x:0
         ,y:0
         ,zindex:this.$store.state.draggable.dragCount
-        ,dom:"<img src='https://tpc.googlesyndication.com/simgad/8593981413023260756?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qmeC9TSiuEECfc0i2oHF7I4oNgplw' />"
+        ,dom:""
       }
     }
   }

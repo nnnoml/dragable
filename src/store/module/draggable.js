@@ -9,6 +9,9 @@ export default {
               ,item_height:0 //组件高
               ,item_x:0 //组件横向X
               ,item_y:0 //组件纵向Y
+              ,text_plugin:'' //文本组件
+              ,img_plugin:'' //图片组件
+              ,scroll_img_plugin:'' //轮播组件
           } //全局信息
           ,dragList:[] //控件list
           ,drag_showbox_status:false //编辑弹窗状态

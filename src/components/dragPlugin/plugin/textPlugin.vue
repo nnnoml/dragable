@@ -28,7 +28,7 @@ export default {
         ,x:0
         ,y:0
         ,zindex:0
-        ,dom:"请双击编辑文字"
+        ,dom:"<p>请双击编辑文字</p>"
       }
     }
   }

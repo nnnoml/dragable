@@ -13,7 +13,6 @@
           <bottomTemp />
           <div class="fr text-center pr-15 mt-4 tool-footer-right" v-html="now_date"></div>
         </footer>
-
          <ShowBox />
       </div>
 </template>
@@ -61,6 +60,11 @@ export default {
       let info = {};
       info.width = arr[0];
       info.height = arr[1];
+
+      info.text_plugin = data.text_plugin;
+      info.img_plugin = data.img_plugin;
+      info.scroll_img_plugin = data.scroll_img_plugin;
+
       this.$store.commit('dragInfo',info);
     }
     //右下角倒计时时间
@@ -86,6 +90,7 @@ export default {
       return {
         'width':this.$store.state.draggable.dragInfo.width+'px'
         ,'height':this.$store.state.draggable.dragInfo.height+'px'
+        ,'transform': 'scale3d(1, 1, 1)' //用于头部fixed宽度铺满问题
       }
     }
     //中轴线
@@ -106,5 +111,11 @@ export default {
 }
 .tool-set-footer{
   z-index: 991;
+}
+#vertLine{
+  z-index: 995;
+}
+#midLine{
+  z-index: 995;
 }
 </style>
