@@ -63,12 +63,14 @@ export default {
           // document.body.appendChild(canvas);
       });
     }
+    //input更新后 更新源
     ,updateItemInfo:function(item_type,src_type,val){
       val = parseInt(val);
       let item_id = this.item_id;
 
       let item = {};
       item[''+item_type+''] = val;
+   
       //更新当前组件信息
       this.$store.commit('dragInfo',item);
       //更新组件源信息
@@ -77,9 +79,21 @@ export default {
       src_item[''+src_type+''] = val;
       this.$store.commit('updateItemPos',src_item);
       this.$store.commit('updateItemSize',src_item);
+
+      //如果是图片 额外更新图片size
+      let img_dom = document.getElementById(item_id).getElementsByClassName("imgs")[0];
+      if(typeof(img_dom) != 'undefined'){
+        if(item_type == 'item_width'){
+          img_dom.style.width=val+"px";
+        }
+        if(item_type == 'item_height'){
+          img_dom.style.height=val+"px";
+        }
+      }
     }
   }
   ,computed:{
+    //参考线
     reference_line:{
       get(){
         return this.$store.state.draggable.reference_line;
@@ -88,9 +102,11 @@ export default {
         this.$store.commit('reference_line',!this.reference_line);
       }
     }
+    //尺寸
     ,guiSize: function () {
       return this.$store.state.draggable.dragInfo.width +' * ' +this.$store.state.draggable.dragInfo.height
     }
+    //宽度
     ,item_width:{
       get(){
         return this.$store.state.draggable.dragInfo.item_width;
@@ -99,6 +115,7 @@ export default {
         this.updateItemInfo('item_width','width',newVal);
       }
     }
+    //高
     ,item_height:{
       get(){
         return this.$store.state.draggable.dragInfo.item_height;
@@ -107,6 +124,7 @@ export default {
         this.updateItemInfo('item_height','height',newVal);
       }
     }
+    //X
     ,item_x:{
       get(){
         return this.$store.state.draggable.dragInfo.item_x;
@@ -115,6 +133,7 @@ export default {
         this.updateItemInfo('item_x','left',newVal);
       }
     }
+    //Y
     ,item_y:{
       get(){
         return this.$store.state.draggable.dragInfo.item_y;

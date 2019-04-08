@@ -2,7 +2,7 @@
     <div :id="dragCount"
       @dragstart="dragstart"
       @dragend="dragend"
-      draggable="true"
+      draggable="false"
       @click="clickHandle($event)"
       class="msg tool-footer-icon fl">
       <i class="windowr-icon icon-wenzi"></i> 文字公告

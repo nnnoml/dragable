@@ -82,9 +82,9 @@ export default {
 }
 .showbox_inner{
     background:#fff;
-    width:500px;
-    height:356px;
-    margin:0px auto;
-    margin-top:20%;
+    width:772px;
+    height:406px;
+    -webkit-transform: translate(50%,50%);
+    transform: translate(50%,50%);
 }
 </style>

@@ -99,7 +99,7 @@ export default {
     }
   }
   ,mounted:function(){
-      this.ajax('http://t.c/dragable.php',{"type":"getDesktopInfo"},'get',this.ajaxCallback);
+      this.ajax('http://192.168.1.155/dragable.php',{"type":"getDesktopInfo"},'get',this.ajaxCallback);
       this.nowDate();
   }
 }

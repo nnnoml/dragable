@@ -10,7 +10,7 @@
           :z="item.zindex"
           :parent="true"
           :handles="['tl','tr','bl','br']"
-          
+
           @dblclick.native="showBox(item)"
           @activated = "onActivated(item)"
           @deactivated="onDeactivated(item)"
