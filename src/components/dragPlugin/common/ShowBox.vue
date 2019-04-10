@@ -33,25 +33,24 @@ export default {
     }
   }
   ,methods:{
-      save:function(){
-          this.$store.state.draggable.drag_item_cache.dom=this.domcache;
-          //保存时候检测 如果是点击进来的组件，做拷贝
-          if(this.$store.state.draggable.drag_item_cache.isClick){
-              //关闭属性,下次修改不需要增加组件
-              this.$store.state.draggable.drag_item_cache.isClick=false;
-              this.$store.commit('dragList',this.$store.state.draggable.drag_item_cache);
-          }
+      // save:function(){
+      //     this.$store.state.draggable.drag_item_cache.dom=this.domcache;
+      //     //保存时候检测 如果是点击进来的组件，做拷贝
+      //     if(this.$store.state.draggable.drag_item_cache.isClick){
+      //         //关闭属性,下次修改不需要增加组件
+      //         this.$store.state.draggable.drag_item_cache.isClick=false;
+      //         this.$store.commit('dragList',this.$store.state.draggable.drag_item_cache);
+      //     }
 
-          //组件id递增
-          this.$store.commit('dragCount');
-          this.close();
-      }
-      ,close:function(){
-          this.$store.commit('drag_showbox_status',false);
-          this.$store.commit('drag_item_cache','');
-          this.domcache = '';
-      }
-
+      //     //组件id递增
+      //     this.$store.commit('dragCount');
+      //     this.close();
+      // }
+      // ,close:function(){
+      //     this.$store.commit('drag_showbox_status',false);
+      //     this.$store.commit('drag_item_cache','');
+      //     this.domcache = '';
+      // }
   }
   ,computed:{
     status(){

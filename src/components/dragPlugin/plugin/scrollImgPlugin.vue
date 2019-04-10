@@ -29,6 +29,7 @@ export default {
         ,y:0
         ,zindex:this.$store.state.draggable.dragCount
         ,dom:""
+        ,img_id_list:[]
       }
     }
   }
